@@ -155,7 +155,9 @@ export default function CybersecurityGRCPage() {
                   "Continuous security monitoring",
                   "Executive-level reporting suite",
                   "IS Standards Compliance ISO27001, PCI-DSS",
-                  "Regulatory Compliance NESA, NIS, NIS, SAMA, HIPAA,
+                  "Regulatory Compliance NESA, NIS, SAMA, HIPAA",
+                  "Security KPI & Performance Measurement",
+                  "Security Budget Management"
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center text-gray-300">
                     <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
