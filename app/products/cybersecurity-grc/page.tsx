@@ -146,7 +146,7 @@ export default function CybersecurityGRCPage() {
               </h2>
               <div className="space-y-4">
                 {[
-                  "AI-powered threat detection and analysis",
+                  "AI-powered Risk analysis",
                   "Automated risk scoring and prioritization",
                   "Real-time compliance dashboard",
                   "Integrated incident response workflows",
@@ -154,6 +154,8 @@ export default function CybersecurityGRCPage() {
                   "Third-party risk assessment tools",
                   "Continuous security monitoring",
                   "Executive-level reporting suite",
+                  "IS Standards Compliance ISO27001, PCI-DSS",
+                  "Regulatory Compliance NESA, NIS, NIS, SAMA, HIPAA,
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center text-gray-300">
                     <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />

@@ -258,7 +258,7 @@ export default function BlogsPage() {
                   <Link href={`/blogs/${post.id}`} className="block">
                     <Button
                       variant="outline"
-                      className="w-full border-white/20 text-white hover:bg-white/10 bg-transparent group-hover:border-cyan-400/50 group-hover:text-cyan-400"
+                      className="w-full border-cyan-500/50 text-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-200 bg-transparent backdrop-blur-sm"
                     >
                       Read More
                       <ArrowRight className="w-4 h-4 ml-2" />

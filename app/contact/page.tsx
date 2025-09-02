@@ -82,27 +82,11 @@ export default function ContactPage() {
 
   const contactMethods = [
     {
-      icon: Users,
-      title: "Sales Inquiries",
-      description: "Interested in our products and services?",
-      contact: "sales@grcsphere.com",
-      phone: "+1 (555) 123-4567",
-      gradient: "from-cyan-400 to-blue-500",
-    },
-    {
-      icon: Headphones,
-      title: "Technical Support",
-      description: "Need help with our solutions?",
-      contact: "support@grcsphere.com",
-      phone: "+1 (555) 234-5678",
-      gradient: "from-purple-400 to-pink-500",
-    },
-    {
       icon: Handshake,
-      title: "Partnerships",
-      description: "Explore partnership opportunities",
-      contact: "partners@grcsphere.com",
-      phone: "+1 (555) 345-6789",
+      title: "Sales & Partnerships",
+      description: "Explore sales and partnership opportunities",
+      contact: "info@grcsphere.com",
+      phone: "+971 (506) 583-714",
       gradient: "from-green-400 to-teal-500",
     },
   ]
@@ -193,10 +177,8 @@ export default function ContactPage() {
                 <CardContent className="space-y-4">
                   <div className="text-gray-300">
                     <p className="font-semibold text-white mb-2">GRC Sphere Headquarters</p>
-                    <p>1234 Cybersecurity Boulevard</p>
-                    <p>Suite 500</p>
-                    <p>San Francisco, CA 94105</p>
-                    <p>United States</p>
+              
+                    <p>Dubai, United Arab Emirates</p>
                   </div>
 
                   <div className="flex items-center text-gray-300">
@@ -244,7 +226,7 @@ export default function ContactPage() {
                           type="text"
                           value={formData.name}
                           onChange={(e) => handleInputChange("name", e.target.value)}
-                          className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-cyan-400"
+                          className="w-full border-cyan-500/50 text-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-200 bg-transparent backdrop-blur-sm"
                           placeholder="Enter your full name"
                           required
                         />
@@ -255,7 +237,7 @@ export default function ContactPage() {
                           type="email"
                           value={formData.email}
                           onChange={(e) => handleInputChange("email", e.target.value)}
-                          className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-cyan-400"
+                          className="w-full border-cyan-500/50 text-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-200 bg-transparent backdrop-blur-sm"
                           placeholder="Enter your email"
                           required
                         />
@@ -269,17 +251,17 @@ export default function ContactPage() {
                           type="text"
                           value={formData.company}
                           onChange={(e) => handleInputChange("company", e.target.value)}
-                          className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-cyan-400"
+                          className="w-full border-cyan-500/50 text-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-200 bg-transparent backdrop-blur-sm"
                           placeholder="Enter your company name"
                         />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-white mb-2">Inquiry Type *</label>
                         <Select onValueChange={(value) => handleInputChange("inquiryType", value)}>
-                          <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                          <SelectTrigger className="w-full border-cyan-500/50 text-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-200 bg-transparent backdrop-blur-sm">
                             <SelectValue placeholder="Select inquiry type" />
                           </SelectTrigger>
-                          <SelectContent className="bg-gray-900 border-white/20">
+                          <SelectContent className="w-full border-cyan-500/50 text-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-200 bg-transparent backdrop-blur-sm">
                             <SelectItem value="sales">Sales Inquiry</SelectItem>
                             <SelectItem value="support">Technical Support</SelectItem>
                             <SelectItem value="partnership">Partnership</SelectItem>
@@ -295,7 +277,7 @@ export default function ContactPage() {
                       <Textarea
                         value={formData.message}
                         onChange={(e) => handleInputChange("message", e.target.value)}
-                        className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-cyan-400 min-h-32"
+                        className="w-full border-cyan-500/50 text-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-200 bg-transparent backdrop-blur-sm"
                         placeholder="Tell us about your requirements, questions, or how we can help you..."
                         required
                       />
