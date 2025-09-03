@@ -8,8 +8,7 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: "GRC Sphere - Cybersecurity Governance, Risk & Compliance",
-  description:
-    "Comprehensive cybersecurity GRC solutions, regulatory compliance, and AI-powered business applications for modern enterprises.",
+  description: "Comprehensive cybersecurity GRC solutions and regulatory compliance services for modern enterprises.",
   generator: "v0.app",
 }
 
