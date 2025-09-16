@@ -1,10 +1,38 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import Link from "next/link"
-import { Shield, ArrowLeft, CheckCircle, Zap, BarChart3, Users, Globe, Lock, Eye, AlertTriangle } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Shield,
+  ArrowLeft,
+  CheckCircle,
+  Zap,
+  BarChart3,
+  Users,
+  Globe,
+  Lock,
+  Eye,
+  AlertTriangle,
+  FileText,
+  Activity,
+  Cpu,
+  Bot,
+  Radar,
+  BookOpen,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
+/**
+ * NOTE: Place your screenshots here:
+ *   public/products/cybersecurity-grc/
+ * Files: image.png, image2.png, image3.png, image4.png, image5.png,
+ *        image6.png, image7.png, image8.png, image9.png, imagea.png
+ */
+
+// ----------------------- Top navigation (kept styling) -----------------------
 const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
@@ -38,10 +66,349 @@ const Navigation = () => {
         </div>
       </div>
     </nav>
-  )
+  );
+};
+
+// ---------------------------- Types & data model -----------------------------
+type Section = { heading: string; bullets?: string[]; body?: string[] };
+
+type Module = {
+  key: string;
+  title: string;
+  intro: string;
+  sections: Section[];
+  icon: LucideIcon;
+  gradient?: string;
+  images?: string[]; // filenames under /public/products/cybersecurity-grc/
+};
+
+// ---------------------------- Module descriptions ----------------------------
+const MODULES: Module[] = [
+  {
+    key: "tprm",
+    title: "Third-Party Risk Management (TPRM)",
+    icon: Users,
+    gradient: "from-cyan-400 to-blue-500",
+    intro:
+      "Identify, assess, monitor and mitigate risks from vendors, suppliers, partners and contractors across their lifecycle.",
+    images: ["image.png"],
+    sections: [
+      {
+        heading: "Why TPRM is Important",
+        bullets: [
+          "Increased exposure to breaches, cyber threats and non-compliance",
+          "Regulators hold you accountable for third-party failures",
+          "Reputational damage when vendors fail",
+          "Operational disruption from supply-chain issues",
+        ],
+      },
+      {
+        heading: "Key Components",
+        bullets: [
+          "Identification of all third parties and inherent risks",
+          "Assessment of security posture and risk level",
+          "Continuous monitoring for changes and new risks",
+          "Mitigation and control implementation",
+          "Up-front due diligence",
+          "Secure off-boarding without introducing new risks",
+        ],
+      },
+      {
+        heading: "Benefits",
+        bullets: ["Protects sensitive data", "Ensures regulatory compliance", "Enhances resilience", "Improves vendor performance"],
+      },
+    ],
+  },
+  {
+    key: "cyber-risk",
+    title: "Cybersecurity Risk Management",
+    icon: Lock,
+    gradient: "from-blue-500 to-indigo-500",
+    intro: "ISO 27001, NIST and FAIR-aligned, AI-assisted engine to identify, analyze, evaluate and treat cyber risks.",
+    images: ["image2.png"],
+    sections: [
+      {
+        heading: "Key Stages",
+        bullets: [
+          "Identify assets (hardware, software, data, networks, apps)",
+          "Identify risks (threats & vulnerabilities)",
+          "Analyze & evaluate likelihood and impact",
+          "Mitigate via controls (access, data protection, hardening, IR plans, patching, training)",
+          "Monitor & review continuously",
+        ],
+      },
+      {
+        heading: "Why It Matters",
+        bullets: ["Business continuity", "Reduced financial/reputation impact", "Regulatory compliance", "Proactive defense & smarter investment"],
+      },
+    ],
+  },
+  {
+    key: "assessment",
+    title: "Cybersecurity Assessment",
+    icon: Eye,
+    gradient: "from-indigo-500 to-purple-500",
+    intro:
+      "Systematic evaluation of IT systems, controls and user practices to surface vulnerabilities, threats and risks.",
+    images: ["image3.png"],
+    sections: [
+      {
+        heading: "Key Aspects",
+        bullets: [
+          "Vulnerability identification",
+          "Threat analysis (e.g., ransomware, phishing)",
+          "Risk prioritization",
+          "Control effectiveness review",
+          "Data & asset focus",
+          "Actionable recommendations",
+        ],
+      },
+      {
+        heading: "Methods",
+        bullets: ["Vulnerability scans", "Penetration testing", "Policy & procedure reviews", "Compliance checks (e.g., NIST, ISO 27001)"],
+      },
+    ],
+  },
+  {
+    key: "is-compliance",
+    title: "Information Security Compliance",
+    icon: FileText,
+    gradient: "from-purple-500 to-pink-500",
+    intro: "Policies, controls and monitoring to ensure systems and data adhere to laws, regulations, standards and internal policy.",
+    images: ["image4.png"],
+    sections: [
+      {
+        heading: "Why It’s Crucial",
+        bullets: ["Avoid legal/financial penalties", "Protect reputation and trust", "Safeguard sensitive data", "Improve efficiency", "Maintain market access"],
+      },
+    ],
+  },
+  {
+    key: "policy",
+    title: "Policy Management",
+    icon: Activity,
+    gradient: "from-emerald-500 to-teal-500",
+    intro: "Create, approve, distribute, update and track policies with ownership, versioning and attestation.",
+    images: ["image5.png"],
+    sections: [
+      {
+        heading: "Key Components",
+        bullets: [
+          "Creation & approval workflows with clear ownership",
+          "Central, searchable policy library",
+          "Tags/categories for discoverability",
+          "Scheduled reviews, updates and version control",
+          "Read-and-understand tracking & reporting",
+        ],
+      },
+      {
+        heading: "Why It Matters",
+        bullets: ["Ensures compliance", "Mitigates risk", "Boosts efficiency & clarity", "Improves adaptability and transparency"],
+      },
+    ],
+  },
+  {
+    key: "vuln-tracking",
+    title: "Vulnerability Tracking",
+    icon: Radar,
+    gradient: "from-amber-500 to-red-500",
+    intro: "Continuous identification, prioritization, remediation and verification of weaknesses across the estate.",
+    images: ["image6.png"],
+    sections: [
+      {
+        heading: "What It Entails",
+        bullets: [
+          "Identification via scans and assessments",
+          "Assessment & prioritization using severity and threat intel",
+          "Remediation (patching, configuration, controls)",
+          "Verification through re-scans",
+          "Reporting on risk posture and program effectiveness",
+        ],
+      },
+      {
+        heading: "Why It’s Important",
+        bullets: ["Reduces breach likelihood", "Improves security posture", "Supports compliance", "Drives operational efficiency"],
+      },
+    ],
+  },
+  {
+    key: "incidents",
+    title: "Risk & Incident Management",
+    icon: AlertTriangle,
+    gradient: "from-rose-500 to-fuchsia-500",
+    intro: "Identify, log, investigate, resolve and learn from events that impact operations, safety or IT services.",
+    images: ["image7.png"],
+    sections: [
+      {
+        heading: "Key Components & Goals",
+        bullets: [
+          "Identification & reporting of incidents",
+          "Right-sized investigations and root cause analysis",
+          "Resolution & service restoration",
+          "Corrective & preventive actions",
+          "Trend analysis and continual improvement",
+        ],
+      },
+    ],
+  },
+  {
+    key: "tech-risk",
+    title: "Technology Risk Management",
+    icon: Cpu,
+    gradient: "from-sky-500 to-cyan-500",
+    intro: "Identify, assess, mitigate and monitor risks across IT systems, digital assets and tech-dependent operations.",
+    images: ["image8.png"],
+    sections: [
+      { heading: "Key Aspects", bullets: ["Identification", "Assessment", "Mitigation", "Monitoring"] },
+      {
+        heading: "Examples of Risks",
+        bullets: [
+          "Cybersecurity threats (breach, ransomware)",
+          "System failures and outages",
+          "Data loss or corruption",
+          "Compliance violations (e.g., GDPR/CCPA)",
+          "Third-party/legacy system risks",
+        ],
+      },
+    ],
+  },
+  {
+    key: "ai",
+    title: "AI Predictive Analysis & GRC Assistant",
+    icon: Bot,
+    gradient: "from-cyan-400 to-purple-500",
+    intro: "ML-powered predictions to prioritize remediation and an always-on assistant for cyber teams with expert prompts.",
+    images: ["image9.png", "imagea.png"],
+    sections: [
+      {
+        heading: "What It Delivers",
+        bullets: [
+          "Prioritization based on risk, findings, vulnerability & incident performance",
+          "Confidence indicators on governance, risk and compliance",
+          "24/7 AI GRC assistant tailored to your organization",
+        ],
+      },
+    ],
+  },
+];
+
+// ------------------------------ UI Components -------------------------------
+function ModuleCard({ module, isOpen, onToggle }: { module: Module; isOpen: boolean; onToggle: () => void }) {
+  const preview = module.images?.[0];
+
+  return (
+    <Card className="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all">
+      <CardHeader className="pb-3">
+        {/* Preview screenshot */}
+        {preview && (
+          <div className="mb-4 overflow-hidden rounded-xl border border-white/10">
+            <Image
+              src={`/products/cybersecurirty-grc/${preview}`}
+              alt={`${module.title} preview screenshot`}
+              width={1280}
+              height={720}
+              className="w-full h-auto"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={false}
+            />
+          </div>
+        )}
+
+        {/* Icon + titles */}
+        <div
+          className={`w-14 h-14 rounded-full bg-gradient-to-r ${
+            module.gradient ?? "from-cyan-400 to-blue-500"
+          } flex items-center justify-center mb-4`}
+        >
+          <module.icon className="w-7 h-7 text-white" />
+        </div>
+        <CardTitle className="text-2xl text-white">{module.title}</CardTitle>
+        <CardDescription className="text-gray-300">{module.intro}</CardDescription>
+      </CardHeader>
+
+      <CardContent className="space-y-5">
+        {/* Expanded details */}
+        <div
+          className={`transition-all duration-300 overflow-hidden ${
+            isOpen ? "max-h-[2000px] opacity-100 mt-2" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="space-y-6">
+            {/* Additional screenshots (if any) */}
+            {module.images && module.images.length > 1 && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {module.images.slice(1).map((img, i) => (
+                  <a
+                    key={img}
+                    href={`/products/cybersecurirty-grc/${img}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group"
+                  >
+                    <Image
+                      src={`/products/cybersecurirty-grc/${img}`}
+                      alt={`${module.title} screenshot ${i + 2}`}
+                      width={1024}
+                      height={640}
+                      className="w-full h-auto rounded-lg border border-white/10 group-hover:opacity-90 transition"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </a>
+                ))}
+              </div>
+            )}
+
+            {/* Sections */}
+            {module.sections.map((s, idx) => (
+              <div key={idx} className="rounded-lg border border-white/10 p-4">
+                <h4 className="text-white font-semibold mb-2">{s.heading}</h4>
+                {s.body?.map((p, j) => (
+                  <p key={j} className="text-gray-300">
+                    {p}
+                  </p>
+                ))}
+                {s.bullets && (
+                  <ul className="mt-2 space-y-2">
+                    {s.bullets.map((b, j) => (
+                      <li key={j} className="flex items-start text-gray-300">
+                        <CheckCircle className="w-4 h-4 text-green-400 mr-2 mt-1 flex-shrink-0" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <Button
+          onClick={onToggle}
+          className={`w-full bg-gradient-to-r ${
+            module.gradient ?? "from-cyan-500 to-blue-500"
+          } hover:opacity-90 text-white border-0`}
+        >
+          {isOpen ? "Hide details" : "View full module details"}
+        </Button>
+      </CardContent>
+    </Card>
+  );
 }
 
+// --------------------------------- Page -------------------------------------
 export default function CybersecurityGRCPage() {
+  // stabilize animated dots to avoid hydration flicker
+  const [dots] = useState(() =>
+    Array.from({ length: 30 }).map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      size: Math.random() * 3 + 1,
+      delay: `${Math.random() * 2}s`,
+    }))
+  );
+
+  const [openModuleKey, setOpenModuleKey] = useState<string | null>(null);
+
   const capabilities = [
     {
       icon: Lock,
@@ -63,23 +430,29 @@ export default function CybersecurityGRCPage() {
       title: "Analytics & Reporting",
       description: "Advanced analytics with customizable dashboards and reports",
     },
-  ]
+  ];
+
+  const impact = [
+    { label: "Faster Compliance", value: "↑ 70%", icon: BarChart3 },
+    { label: "Risk Reduction", value: "↓ 85%", icon: Zap },
+    { label: "Coverage", value: "24/7", icon: Eye },
+  ];
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
         <div className="absolute inset-0 opacity-20">
-          {Array.from({ length: 30 }).map((_, i) => (
+          {dots.map((d, i) => (
             <div
               key={i}
               className="absolute rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 animate-pulse"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                width: `${Math.random() * 3 + 1}px`,
-                height: `${Math.random() * 3 + 1}px`,
-                animationDelay: `${Math.random() * 2}s`,
+                left: d.left,
+                top: d.top,
+                width: `${d.size}px`,
+                height: `${d.size}px`,
+                animationDelay: d.delay,
               }}
             />
           ))}
@@ -90,7 +463,7 @@ export default function CybersecurityGRCPage() {
 
       <main className="relative z-10 pt-24 pb-16 px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Back Navigation */}
+          {/* Back link */}
           <Link
             href="/products"
             className="inline-flex items-center text-cyan-400 hover:text-cyan-300 mb-8 transition-colors"
@@ -99,25 +472,44 @@ export default function CybersecurityGRCPage() {
             Back to Products
           </Link>
 
-          {/* Hero Section */}
-          <div className="text-center mb-16">
+          {/* Hero */}
+          <div className="text-center mb-14">
             <div className="w-24 h-24 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center mx-auto mb-8">
               <Shield className="w-12 h-12 text-white" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Cybersecurity GRC Solution
+              Cybersecurity GRC
             </h1>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              A comprehensive governance, risk management, and compliance platform that transforms how organizations
-              approach cybersecurity. Built for the modern threat landscape with AI-powered insights and automated
-              workflows.
+              A comprehensive governance, risk and compliance platform built for the modern threat landscape —
+              combining frameworks like ISO 27001/NIST/FAIR with automation and AI-powered insights across risk,
+              compliance, assessments, policies, vulnerabilities, incidents and technology risk.
             </p>
           </div>
 
-          {/* Key Capabilities */}
+          {/* Impact metrics */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+            {impact.map((m, i) => {
+              const Icon = m.icon;
+              return (
+                <div
+                  key={i}
+                  className="rounded-xl border border-white/10 bg-white/5 p-6 flex items-center gap-4"
+                >
+                  <Icon className="w-7 h-7 text-cyan-400" />
+                  <div>
+                    <div className="text-2xl font-semibold text-white">{m.value}</div>
+                    <div className="text-sm text-gray-300">{m.label}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Capabilities (kept) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {capabilities.map((capability, index) => {
-              const IconComponent = capability.icon
+            {capabilities.map((cap, index) => {
+              const Icon = cap.icon;
               return (
                 <Card
                   key={index}
@@ -125,82 +517,49 @@ export default function CybersecurityGRCPage() {
                 >
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center mx-auto mb-4">
-                      <IconComponent className="w-8 h-8 text-white" />
+                      <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <CardTitle className="text-lg text-white">{capability.title}</CardTitle>
+                    <CardTitle className="text-lg text-white">{cap.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-gray-300 text-center">{capability.description}</CardDescription>
+                    <CardDescription className="text-gray-300 text-center">
+                      {cap.description}
+                    </CardDescription>
                   </CardContent>
                 </Card>
-              )
+              );
             })}
           </div>
 
-          {/* Detailed Features */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
-                <Zap className="w-8 h-8 text-cyan-400 mr-3" />
-                Advanced Features
-              </h2>
-              <div className="space-y-4">
-                {[
-                  "AI-powered Risk analysis",
-                  "Automated risk scoring and prioritization",
-                  "Real-time compliance dashboard",
-                  "Integrated incident response workflows",
-                  "Custom policy management system",
-                  "Third-party risk assessment tools",
-                  "Continuous security monitoring",
-                  "Executive-level reporting suite",
-                  "IS Standards Compliance ISO27001, PCI-DSS",
-                  "Regulatory Compliance NESA, NIS, SAMA, HIPAA",
-                  "Security KPI & Performance Measurement",
-                  "Security Budget Management"
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
-                    {feature}
-                  </div>
-                ))}
-              </div>
-            </div>
+          {/* Modules */}
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
+              <BookOpen className="w-8 h-8 text-cyan-400 mr-3" />
+              Modules
+            </h2>
 
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
-                <BarChart3 className="w-8 h-8 text-purple-400 mr-3" />
-                Business Impact
-              </h2>
-              <div className="space-y-6">
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-cyan-400 mb-2">85% Risk Reduction</h3>
-                  <p className="text-gray-300">
-                    Proactive identification and mitigation of security risks before they impact operations.
-                  </p>
+            <div className="columns-1 lg:columns-2 gap-8">
+              {MODULES.map((m) => (
+                <div key={m.key} className="break-inside-avoid mb-8">
+                  <ModuleCard
+                    module={m}
+                    isOpen={openModuleKey === m.key}
+                    onToggle={() =>
+                      setOpenModuleKey((prev) => (prev === m.key ? null : m.key))
+                    }
+                  />
                 </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-purple-400 mb-2">70% Faster Compliance</h3>
-                  <p className="text-gray-300">
-                    Automated compliance monitoring and reporting reduces audit preparation time significantly.
-                  </p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-pink-400 mb-2">24/7 Protection</h3>
-                  <p className="text-gray-300">
-                    Continuous monitoring and automated response capabilities ensure round-the-clock security.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
-          </div>
+          </section>
 
-          {/* CTA Section */}
-          <div className="text-center bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm border border-cyan-400/20 rounded-2xl p-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Ready to Strengthen Your Security Posture?</h2>
+          {/* CTA */}
+          <div className="text-center bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm border border-cyan-400/20 rounded-2xl p-12 mt-16">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Ready to strengthen your security posture?
+            </h2>
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              See how our Cybersecurity GRC Solution can transform your organization's approach to risk management and
-              compliance.
+              See how GRC Sphere transforms risk and compliance with automation and AI.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -223,5 +582,5 @@ export default function CybersecurityGRCPage() {
         </div>
       </main>
     </div>
-  )
+  );
 }
