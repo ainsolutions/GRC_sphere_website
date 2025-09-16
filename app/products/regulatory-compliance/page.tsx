@@ -198,20 +198,12 @@ export default function RegulatoryCompliancePage() {
               Transform your compliance processes with our comprehensive regulatory management platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
+            <Button
                 size="lg"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-0"
-              >
-                <Users className="w-5 h-5 mr-2" />
-                Schedule Demo
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-purple-400/50 text-purple-400 hover:bg-purple-400/10 bg-transparent"
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
               >
                 <Globe className="w-5 h-5 mr-2" />
-                Request Trial
+                <Link href="mailto:info@grcsphere.com">Contact Sales</Link>
               </Button>
             </div>
           </div>
