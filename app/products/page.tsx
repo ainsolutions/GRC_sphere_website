@@ -216,16 +216,16 @@ export default function ProductsPage() {
                 className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0"
               >
                 <Users className="w-5 h-5 mr-2" />
-                Schedule Demo
-              </Button>
+                  <Link href="mailto:info@grcsphere.com"> Schedule Demo</Link>
+              </Button> 
+           
               <Button
                 size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 bg-transparent"
+                className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0"
               >
-                <Globe className="w-5 h-5 mr-2" />
-                Contact Sales
-              </Button>
+  
+                Contact Sales 
+              </Button> 
             </div>
           </div>
         </div>
