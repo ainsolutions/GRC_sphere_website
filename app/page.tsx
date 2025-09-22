@@ -82,9 +82,9 @@ const Navigation = () => {
               Contact
             </Link>
           </div>
-<div>
+
           <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0">
-            <Link href="/products"> Get Started</link>
+            <Link href="/products"> Get Started </Link>
           </Button>
         </div>
       </div>
