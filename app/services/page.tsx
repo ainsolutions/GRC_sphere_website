@@ -219,20 +219,13 @@ export default function CybersecurityServicesPage() {
               Partner with our cybersecurity experts to build a robust defense against evolving threats.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
+            
+                <Button
                 size="lg"
                 className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
               >
-                <Users className="w-5 h-5 mr-2" />
-                Consult Our Experts
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 bg-transparent"
-              >
                 <Globe className="w-5 h-5 mr-2" />
-                Request Assessment
+                <Link href="mailto:info@grcsphere.com">Consult Our Experts</Link>
               </Button>
             </div>
           </div>
