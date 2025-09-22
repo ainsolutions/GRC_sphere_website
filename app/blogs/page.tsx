@@ -9,6 +9,7 @@ import { Shield, Brain, Calendar, User, ArrowRight, Search, Filter } from "lucid
 
 const Navigation = () => {
   return (
+ 
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -138,6 +139,7 @@ export default function BlogsPage() {
   }
 
   return (
+
     <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
