@@ -84,7 +84,7 @@ const Navigation = () => {
           </div>
 
           <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0">
-            Get Started
+            <Link href="/products">Get Started</link>
           </Button>
         </div>
       </div>
