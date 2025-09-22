@@ -562,20 +562,13 @@ export default function CybersecurityGRCPage() {
               See how GRC Sphere transforms risk and compliance with automation and AI.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+             
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
               >
-                <Users className="w-5 h-5 mr-2" />
-                Schedule Demo
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 bg-transparent"
-              >
                 <Globe className="w-5 h-5 mr-2" />
-                Request Trial
+                <Link href="mailto:info@grcsphere.com">Request Trial</Link>
               </Button>
             </div>
           </div>

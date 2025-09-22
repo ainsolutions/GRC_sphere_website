@@ -84,7 +84,7 @@ const Navigation = () => {
           </div>
 
           <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0">
-            Get Started
+            <Link href="/products"> Get Started </Link>
           </Button>
         </div>
       </div>
@@ -143,13 +143,7 @@ export default function HomePage() {
           </div>
 
           {/* CTA Button */}
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white text-lg px-12 py-6 rounded-full border-0 shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105"
-          >
-            <Zap className="w-5 h-5 mr-2" />
-            Enter the Security Realm
-          </Button>
+        
 
           {/* Additional Info */}
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">

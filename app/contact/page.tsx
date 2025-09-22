@@ -25,8 +25,13 @@ import {
   Globe,
 } from "lucide-react"
 
+
+
+
+
 const Navigation = () => {
   return (
+ 
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -92,6 +97,8 @@ export default function ContactPage() {
   ]
 
   return (
+
+  
     <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
@@ -116,8 +123,13 @@ export default function ContactPage() {
 
       <main className="relative z-10 pt-24 pb-16 px-6">
         <div className="max-w-7xl mx-auto">
+     
           {/* Header Section */}
           <div className="text-center mb-16">
+   
+
+      
+
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Get In Touch
             </h1>
@@ -126,7 +138,7 @@ export default function ContactPage() {
               the complex world of GRC and AI-powered solutions.
             </p>
           </div>
-
+ 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             {/* Contact Methods */}
             <div className="lg:col-span-1 space-y-6">
@@ -345,6 +357,8 @@ export default function ContactPage() {
           </div>
         </div>
       </main>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17583674550"></script>
+
     </div>
   )
 }

@@ -211,21 +211,14 @@ export default function ProductsPage() {
               compliance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
+           <Button
                 size="lg"
-                className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0"
-              >
-                <Users className="w-5 h-5 mr-2" />
-                Schedule Demo
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 bg-transparent"
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
               >
                 <Globe className="w-5 h-5 mr-2" />
-                Contact Sales
-              </Button>
+                <Link href="mailto:info@grcsphere.com">Contact Our Sales</Link>
+              </Button> 
+
             </div>
           </div>
         </div>

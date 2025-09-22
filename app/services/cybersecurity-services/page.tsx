@@ -69,16 +69,16 @@ export default function CybersecurityServicesPage() {
         "Security controls implementation",
       ],
     },
-    {
-      icon: Search,
-      title: "Red Teaming and Forensics",
-      description: "Advanced threat simulation and digital forensics services",
+       {
+      icon: Target,
+      title: "Data Protection",
+      description: "Data protection, classification, and management services",
       features: [
-        "Penetration testing and red teaming",
-        "Digital forensics investigation",
-        "Incident response services",
-        "Threat hunting operations",
-        "Security awareness training",
+        "Policy and Procedure Development",
+        "Regulatory Compliance",
+        "Managed Services for Hotline",
+        "Technology Implementation",
+        "Data Classification & Management",
         "Post-incident analysis and reporting",
       ],
     },
@@ -133,7 +133,7 @@ export default function CybersecurityServicesPage() {
           </div>
 
           {/* Sub-services Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
             {subServices.map((service, index) => {
               const IconComponent = service.icon
               return (
@@ -226,21 +226,14 @@ export default function CybersecurityServicesPage() {
               Partner with our cybersecurity experts to build a robust defense against evolving threats.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
+                 <Button
                 size="lg"
                 className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
               >
-                <Users className="w-5 h-5 mr-2" />
-                Consult Our Experts
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 bg-transparent"
-              >
                 <Globe className="w-5 h-5 mr-2" />
-                Request Assessment
+                <Link href="mailto:info@grcsphere.com">Consult Our Experts</Link>
               </Button>
+            
             </div>
           </div>
         </div>
