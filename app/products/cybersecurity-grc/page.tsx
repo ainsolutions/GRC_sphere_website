@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
 import {
   Shield,
   ArrowLeft,
@@ -20,10 +20,10 @@ import {
   Bot,
   Radar,
   BookOpen,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+} from "lucide-react"
+import type { LucideIcon } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 /**
  * NOTE: Place your screenshots here:
@@ -38,11 +38,14 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <Shield className="w-8 h-8 text-cyan-400" />
-            <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              GRC Sphere
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/grc-sphere-full-logo.png"
+              alt="GRC Sphere"
+              width={120}
+              height={50}
+              className="object-contain"
+            />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -60,27 +63,31 @@ const Navigation = () => {
             </Link>
           </div>
 
-          <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0">
-            Get Started
+          <Button
+            size="lg"
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
+          >
+            <Globe className="w-5 h-5 mr-2" />
+            <Link href="mailto:connect@observeri.com">Consult Our Experts</Link>
           </Button>
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
 // ---------------------------- Types & data model -----------------------------
-type Section = { heading: string; bullets?: string[]; body?: string[] };
+type Section = { heading: string; bullets?: string[]; body?: string[] }
 
 type Module = {
-  key: string;
-  title: string;
-  intro: string;
-  sections: Section[];
-  icon: LucideIcon;
-  gradient?: string;
-  images?: string[]; // filenames under /public/products/cybersecurity-grc/
-};
+  key: string
+  title: string
+  intro: string
+  sections: Section[]
+  icon: LucideIcon
+  gradient?: string
+  images?: string[] // filenames under /public/products/cybersecurity-grc/
+}
 
 // ---------------------------- Module descriptions ----------------------------
 const MODULES: Module[] = [
@@ -115,7 +122,12 @@ const MODULES: Module[] = [
       },
       {
         heading: "Benefits",
-        bullets: ["Protects sensitive data", "Ensures regulatory compliance", "Enhances resilience", "Improves vendor performance"],
+        bullets: [
+          "Protects sensitive data",
+          "Ensures regulatory compliance",
+          "Enhances resilience",
+          "Improves vendor performance",
+        ],
       },
     ],
   },
@@ -139,7 +151,12 @@ const MODULES: Module[] = [
       },
       {
         heading: "Why It Matters",
-        bullets: ["Business continuity", "Reduced financial/reputation impact", "Regulatory compliance", "Proactive defense & smarter investment"],
+        bullets: [
+          "Business continuity",
+          "Reduced financial/reputation impact",
+          "Regulatory compliance",
+          "Proactive defense & smarter investment",
+        ],
       },
     ],
   },
@@ -165,7 +182,12 @@ const MODULES: Module[] = [
       },
       {
         heading: "Methods",
-        bullets: ["Vulnerability scans", "Penetration testing", "Policy & procedure reviews", "Compliance checks (e.g., NIST, ISO 27001)"],
+        bullets: [
+          "Vulnerability scans",
+          "Penetration testing",
+          "Policy & procedure reviews",
+          "Compliance checks (e.g., NIST, ISO 27001)",
+        ],
       },
     ],
   },
@@ -174,12 +196,19 @@ const MODULES: Module[] = [
     title: "Information Security Compliance",
     icon: FileText,
     gradient: "from-purple-500 to-pink-500",
-    intro: "Policies, controls and monitoring to ensure systems and data adhere to laws, regulations, standards and internal policy.",
+    intro:
+      "Policies, controls and monitoring to ensure systems and data adhere to laws, regulations, standards and internal policy.",
     images: ["image4.png"],
     sections: [
       {
         heading: "Why It’s Crucial",
-        bullets: ["Avoid legal/financial penalties", "Protect reputation and trust", "Safeguard sensitive data", "Improve efficiency", "Maintain market access"],
+        bullets: [
+          "Avoid legal/financial penalties",
+          "Protect reputation and trust",
+          "Safeguard sensitive data",
+          "Improve efficiency",
+          "Maintain market access",
+        ],
       },
     ],
   },
@@ -203,7 +232,12 @@ const MODULES: Module[] = [
       },
       {
         heading: "Why It Matters",
-        bullets: ["Ensures compliance", "Mitigates risk", "Boosts efficiency & clarity", "Improves adaptability and transparency"],
+        bullets: [
+          "Ensures compliance",
+          "Mitigates risk",
+          "Boosts efficiency & clarity",
+          "Improves adaptability and transparency",
+        ],
       },
     ],
   },
@@ -227,7 +261,12 @@ const MODULES: Module[] = [
       },
       {
         heading: "Why It’s Important",
-        bullets: ["Reduces breach likelihood", "Improves security posture", "Supports compliance", "Drives operational efficiency"],
+        bullets: [
+          "Reduces breach likelihood",
+          "Improves security posture",
+          "Supports compliance",
+          "Drives operational efficiency",
+        ],
       },
     ],
   },
@@ -256,7 +295,8 @@ const MODULES: Module[] = [
     title: "Technology Risk Management",
     icon: Cpu,
     gradient: "from-sky-500 to-cyan-500",
-    intro: "Identify, assess, mitigate and monitor risks across IT systems, digital assets and tech-dependent operations.",
+    intro:
+      "Identify, assess, mitigate and monitor risks across IT systems, digital assets and tech-dependent operations.",
     images: ["image8.png"],
     sections: [
       { heading: "Key Aspects", bullets: ["Identification", "Assessment", "Mitigation", "Monitoring"] },
@@ -277,7 +317,8 @@ const MODULES: Module[] = [
     title: "AI Predictive Analysis & GRC Assistant",
     icon: Bot,
     gradient: "from-cyan-400 to-purple-500",
-    intro: "ML-powered predictions to prioritize remediation and an always-on assistant for cyber teams with expert prompts.",
+    intro:
+      "ML-powered predictions to prioritize remediation and an always-on assistant for cyber teams with expert prompts.",
     images: ["image9.png", "imagea.png"],
     sections: [
       {
@@ -290,11 +331,11 @@ const MODULES: Module[] = [
       },
     ],
   },
-];
+]
 
 // ------------------------------ UI Components -------------------------------
 function ModuleCard({ module, isOpen, onToggle }: { module: Module; isOpen: boolean; onToggle: () => void }) {
-  const preview = module.images?.[0];
+  const preview = module.images?.[0]
 
   return (
     <Card className="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all">
@@ -392,7 +433,7 @@ function ModuleCard({ module, isOpen, onToggle }: { module: Module; isOpen: bool
         </Button>
       </CardContent>
     </Card>
-  );
+  )
 }
 
 // --------------------------------- Page -------------------------------------
@@ -404,10 +445,10 @@ export default function CybersecurityGRCPage() {
       top: `${Math.random() * 100}%`,
       size: Math.random() * 3 + 1,
       delay: `${Math.random() * 2}s`,
-    }))
-  );
+    })),
+  )
 
-  const [openModuleKey, setOpenModuleKey] = useState<string | null>(null);
+  const [openModuleKey, setOpenModuleKey] = useState<string | null>(null)
 
   const capabilities = [
     {
@@ -430,13 +471,13 @@ export default function CybersecurityGRCPage() {
       title: "Analytics & Reporting",
       description: "Advanced analytics with customizable dashboards and reports",
     },
-  ];
+  ]
 
   const impact = [
     { label: "Faster Compliance", value: "↑ 70%", icon: BarChart3 },
     { label: "Risk Reduction", value: "↓ 85%", icon: Zap },
     { label: "Coverage", value: "24/7", icon: Eye },
-  ];
+  ]
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
@@ -481,35 +522,32 @@ export default function CybersecurityGRCPage() {
               Cybersecurity GRC
             </h1>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              A comprehensive governance, risk and compliance platform built for the modern threat landscape —
-              combining frameworks like ISO 27001/NIST/FAIR with automation and AI-powered insights across risk,
-              compliance, assessments, policies, vulnerabilities, incidents and technology risk.
+              A comprehensive governance, risk and compliance platform built for the modern threat landscape — combining
+              frameworks like ISO 27001/NIST/FAIR with automation and AI-powered insights across risk, compliance,
+              assessments, policies, vulnerabilities, incidents and technology risk.
             </p>
           </div>
 
           {/* Impact metrics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
             {impact.map((m, i) => {
-              const Icon = m.icon;
+              const Icon = m.icon
               return (
-                <div
-                  key={i}
-                  className="rounded-xl border border-white/10 bg-white/5 p-6 flex items-center gap-4"
-                >
+                <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-6 flex items-center gap-4">
                   <Icon className="w-7 h-7 text-cyan-400" />
                   <div>
                     <div className="text-2xl font-semibold text-white">{m.value}</div>
                     <div className="text-sm text-gray-300">{m.label}</div>
                   </div>
                 </div>
-              );
+              )
             })}
           </div>
 
           {/* Capabilities (kept) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {capabilities.map((cap, index) => {
-              const Icon = cap.icon;
+              const Icon = cap.icon
               return (
                 <Card
                   key={index}
@@ -522,12 +560,10 @@ export default function CybersecurityGRCPage() {
                     <CardTitle className="text-lg text-white">{cap.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-gray-300 text-center">
-                      {cap.description}
-                    </CardDescription>
+                    <CardDescription className="text-gray-300 text-center">{cap.description}</CardDescription>
                   </CardContent>
                 </Card>
-              );
+              )
             })}
           </div>
 
@@ -544,9 +580,7 @@ export default function CybersecurityGRCPage() {
                   <ModuleCard
                     module={m}
                     isOpen={openModuleKey === m.key}
-                    onToggle={() =>
-                      setOpenModuleKey((prev) => (prev === m.key ? null : m.key))
-                    }
+                    onToggle={() => setOpenModuleKey((prev) => (prev === m.key ? null : m.key))}
                   />
                 </div>
               ))}
@@ -555,25 +589,98 @@ export default function CybersecurityGRCPage() {
 
           {/* CTA */}
           <div className="text-center bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm border border-cyan-400/20 rounded-2xl p-12 mt-16">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Ready to strengthen your security posture?
-            </h2>
+            <h2 className="text-3xl font-bold text-white mb-4">Ready to strengthen your security posture?</h2>
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
               See how GRC Sphere transforms risk and compliance with automation and AI.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-             
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
               >
                 <Globe className="w-5 h-5 mr-2" />
-                <Link href="mailto:info@grcsphere.com">Request Trial</Link>
+                <Link href="mailto:connect@observeri.com">Request Trial</Link>
               </Button>
             </div>
           </div>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="bg-[#0a0a14] py-12 px-6 border-t border-white/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center space-x-3 mb-4">
+                <Link href="/" className="flex items-center">
+                  <Image
+                    src="/grc-sphere-full-logo.png"
+                    alt="GRC Sphere"
+                    width={120}
+                    height={50}
+                    className="object-contain"
+                  />
+                </Link>
+              </div>
+              <p className="text-gray-400 text-sm">
+                Comprehensive cybersecurity governance, risk, and compliance solutions
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-white font-semibold mb-4">Products</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/products/cybersecurity-grc" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                    Cybersecurity GRC
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/products/regulatory-compliance" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                    Regulatory Compliance
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-semibold mb-4">Services</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/services/cybersecurity-services" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                    Cybersecurity Services
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                    All Services
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-semibold mb-4">Company</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/blogs" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 GRC Sphere. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
-  );
+  )
 }

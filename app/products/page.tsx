@@ -1,41 +1,51 @@
 "use client"
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
-import { Shield, Lock, CheckCircle, ArrowRight, Zap, Globe, Users, BarChart3 } from "lucide-react"
+import { Shield, Lock, CheckCircle, ArrowRight, Zap, BarChart3, Globe } from "lucide-react"
+import Image from "next/image"
+import { HyperspeedBackground } from "@/components/hyperspeed-background"
 
 const Navigation = () => {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a2e]/80 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <Shield className="w-8 h-8 text-cyan-400" />
-            <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              GRC Sphere
-            </span>
+       <Link href="/" className="flex items-center">
+            <Image
+              src="/grc-sphere-full-logo.png"
+              alt="GRC Sphere"
+              width={120}
+              height={50}
+              className="object-contain"
+            />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/products" className="text-cyan-400 font-semibold">
+            <Link href="/products" className="text-[#00D9FF] font-semibold">
               Products
             </Link>
-            <Link href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors">
+            <Link href="/services" className="text-gray-300 hover:text-[#00D9FF] transition-colors">
               Services
             </Link>
-            <Link href="/blogs" className="text-gray-300 hover:text-cyan-400 transition-colors">
-              Blogs
+            <Link href="/blogs" className="text-gray-300 hover:text-[#00D9FF] transition-colors">
+              Resources
             </Link>
-            <Link href="/contact" className="text-gray-300 hover:text-cyan-400 transition-colors">
+            <Link href="/contact" className="text-gray-300 hover:text-[#00D9FF] transition-colors">
               Contact
             </Link>
           </div>
 
-          <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0">
-            Get Started
-          </Button>
+          
+            <Button
+                size="lg"
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
+              >
+                <Globe className="w-5 h-5 mr-2" />
+                <Link href="mailto:connect@observeri.com">Consult Our Experts</Link>
+              </Button>
+          
         </div>
       </div>
     </nav>
@@ -43,8 +53,6 @@ const Navigation = () => {
 }
 
 export default function ProductsPage() {
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null)
-
   const products = [
     {
       id: "cybersecurity-grc",
@@ -52,7 +60,6 @@ export default function ProductsPage() {
       description:
         "Comprehensive governance, risk management, and compliance platform designed for modern cybersecurity challenges.",
       icon: Shield,
-      gradient: "from-cyan-400 to-blue-500",
       features: [
         "Risk Assessment & Management",
         "Compliance Monitoring",
@@ -74,7 +81,6 @@ export default function ProductsPage() {
       description:
         "Advanced compliance management system ensuring adherence to industry standards and regulatory requirements.",
       icon: Lock,
-      gradient: "from-purple-400 to-pink-500",
       features: [
         "Multi-Framework Support (SOX, GDPR, HIPAA)",
         "Automated Evidence Collection",
@@ -93,35 +99,18 @@ export default function ProductsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
-        <div className="absolute inset-0 opacity-20">
-          {Array.from({ length: 30 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full bg-gradient-to-r from-cyan-400 to-purple-400 animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                width: `${Math.random() * 3 + 1}px`,
-                height: `${Math.random() * 3 + 1}px`,
-                animationDelay: `${Math.random() * 2}s`,
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
+    <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#16213e]">
+      <HyperspeedBackground />
       <Navigation />
 
-      <main className="relative z-10 pt-24 pb-16 px-6">
-        <div className="max-w-7xl mx-auto">
+      <main className="relative z-10 pt-32 pb-16 px-6">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-[#00D9FF]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Header Section */}
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Our Products
-            </h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">Our Products</h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Cutting-edge cybersecurity and compliance solutions designed to protect and empower your organization in
               the digital age.
@@ -135,17 +124,11 @@ export default function ProductsPage() {
               return (
                 <Card
                   key={product.id}
-                  className={`bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300 transform hover:scale-105 ${
-                    hoveredCard === product.id ? "shadow-2xl" : ""
-                  }`}
-                  onMouseEnter={() => setHoveredCard(product.id)}
-                  onMouseLeave={() => setHoveredCard(null)}
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#00D9FF]/50 transition-all duration-300"
                 >
                   <CardHeader className="pb-4">
-                    <div
-                      className={`w-16 h-16 rounded-full bg-gradient-to-r ${product.gradient} flex items-center justify-center mb-4`}
-                    >
-                      <IconComponent className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 rounded-full bg-[#00D9FF]/20 flex items-center justify-center mb-4">
+                      <IconComponent className="w-8 h-8 text-[#00D9FF]" />
                     </div>
                     <CardTitle className="text-2xl text-white mb-2">{product.title}</CardTitle>
                     <CardDescription className="text-gray-300 text-lg leading-relaxed">
@@ -157,13 +140,13 @@ export default function ProductsPage() {
                     {/* Features */}
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
-                        <Zap className="w-5 h-5 text-cyan-400 mr-2" />
+                        <Zap className="w-5 h-5 text-[#00D9FF] mr-2" />
                         Key Features
                       </h4>
                       <ul className="space-y-2">
                         {product.features.map((feature, index) => (
                           <li key={index} className="flex items-center text-gray-300">
-                            <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
+                            <CheckCircle className="w-4 h-4 text-[#00D9FF] mr-3 flex-shrink-0" />
                             {feature}
                           </li>
                         ))}
@@ -173,13 +156,13 @@ export default function ProductsPage() {
                     {/* Benefits */}
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
-                        <BarChart3 className="w-5 h-5 text-purple-400 mr-2" />
+                        <BarChart3 className="w-5 h-5 text-[#00D9FF] mr-2" />
                         Benefits
                       </h4>
                       <ul className="space-y-2">
                         {product.benefits.map((benefit, index) => (
                           <li key={index} className="flex items-center text-gray-300">
-                            <ArrowRight className="w-4 h-4 text-cyan-400 mr-3 flex-shrink-0" />
+                            <ArrowRight className="w-4 h-4 text-[#00D9FF] mr-3 flex-shrink-0" />
                             {benefit}
                           </li>
                         ))}
@@ -189,9 +172,7 @@ export default function ProductsPage() {
                     {/* CTA */}
                     <div className="pt-4">
                       <Link href={`/products/${product.id}`}>
-                        <Button
-                          className={`w-full bg-gradient-to-r ${product.gradient} hover:opacity-90 text-white border-0`}
-                        >
+                        <Button className="w-full bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-semibold border-0">
                           Learn More
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </Button>
@@ -210,17 +191,95 @@ export default function ProductsPage() {
               Join hundreds of organizations that trust GRC Sphere to protect their digital assets and ensure
               compliance.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-           <Button
+               <Button
                 size="lg"
                 className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
               >
                 <Globe className="w-5 h-5 mr-2" />
-                <Link href="mailto:info@grcsphere.com">Contact Our Sales</Link>
-              </Button> 
-
-            </div>
+                <Link href="mailto:connect@observeri.com">Consult Our Experts</Link>
+              </Button>
           </div>
+          {/* Footer */}
+          <footer className="bg-[#0a0a14] py-12 px-6 border-t border-white/10">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                  <div className="flex items-center space-x-3 mb-4">
+               <Link href="/" className="flex items-center">
+            <Image
+              src="/grc-sphere-full-logo.png"
+              alt="GRC Sphere"
+              width={120}
+              height={50}
+              className="object-contain"
+            />
+          </Link>
+                  </div>
+                  <p className="text-gray-400 text-sm">
+                    Comprehensive cybersecurity governance, risk, and compliance solutions
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-white font-semibold mb-4">Products</h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link href="/products/cybersecurity-grc" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                        Cybersecurity GRC
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/products/regulatory-compliance"
+                        className="text-gray-400 hover:text-[#00D9FF] text-sm"
+                      >
+                        Regulatory Compliance
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-white font-semibold mb-4">Services</h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link
+                        href="/services/cybersecurity-services"
+                        className="text-gray-400 hover:text-[#00D9FF] text-sm"
+                      >
+                        Cybersecurity Services
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/services" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                        All Services
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-white font-semibold mb-4">Company</h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link href="/blogs" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                        Blog
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/contact" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                        Contact
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 GRC Sphere. All rights reserved.</p>
+              </div>
+            </div>
+          </footer>
         </div>
       </main>
     </div>

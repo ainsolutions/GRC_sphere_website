@@ -5,39 +5,47 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { Shield, Brain, Calendar, User, ArrowRight, Search, Filter } from "lucide-react"
+import Image from "next/image"
+import { Brain, Calendar, User, ArrowRight, Search, Filter, Globe } from "lucide-react"
+import { HyperspeedBackground } from "@/components/hyperspeed-background"
 
 const Navigation = () => {
   return (
- 
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a2e]/80 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <Shield className="w-8 h-8 text-cyan-400" />
-            <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              GRC Sphere
-            </span>
+     <Link href="/" className="flex items-center">
+            <Image
+              src="/grc-sphere-full-logo.png"
+              alt="GRC Sphere"
+              width={120}
+              height={50}
+              className="object-contain"
+            />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/products" className="text-gray-300 hover:text-cyan-400 transition-colors">
+            <Link href="/products" className="text-gray-300 hover:text-[#00D9FF] transition-colors">
               Products
             </Link>
-            <Link href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors">
+            <Link href="/services" className="text-gray-300 hover:text-[#00D9FF] transition-colors">
               Services
             </Link>
-            <Link href="/blogs" className="text-cyan-400 font-semibold">
-              Blogs
+            <Link href="/blogs" className="text-[#00D9FF] font-semibold">
+              Resources
             </Link>
-            <Link href="/contact" className="text-gray-300 hover:text-cyan-400 transition-colors">
+            <Link href="/contact" className="text-gray-300 hover:text-[#00D9FF] transition-colors">
               Contact
             </Link>
           </div>
 
-          <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0">
-            Get Started
-          </Button>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
+              >
+                <Globe className="w-5 h-5 mr-2" />
+                <Link href="mailto:connect@observeri.com">Consult Our Experts</Link>
+              </Button>
         </div>
       </div>
     </nav>
@@ -130,52 +138,32 @@ export default function BlogsPage() {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "AI":
-        return "bg-gradient-to-r from-purple-500 to-pink-500"
+        return "bg-[#00D9FF]"
       case "Cybersecurity":
-        return "bg-gradient-to-r from-cyan-500 to-blue-500"
+        return "bg-purple-500"
       default:
-        return "bg-gradient-to-r from-gray-500 to-gray-600"
+        return "bg-gray-500"
     }
   }
 
   return (
-
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
-        <div className="absolute inset-0 opacity-20">
-          {Array.from({ length: 30 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full bg-gradient-to-r from-cyan-400 to-purple-400 animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                width: `${Math.random() * 3 + 1}px`,
-                height: `${Math.random() * 3 + 1}px`,
-                animationDelay: `${Math.random() * 2}s`,
-              }}
-            />
-          ))}
-        </div>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-[#0f0f1e] via-[#1a1a2e] to-[#16213e] relative overflow-hidden">
+      <HyperspeedBackground />
+      <div className="absolute top-20 left-10 w-64 h-64 bg-[#00D9FF]/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
 
       <Navigation />
 
-      <main className="relative z-10 pt-24 pb-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          {/* Header Section */}
+      <main className="relative z-10 pt-32 pb-16 px-6">
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Insights & Expertise
-            </h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">Insights & Expertise</h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Stay ahead of the curve with expert insights on cybersecurity, AI, and governance. Our thought leaders
               share practical knowledge and industry trends.
             </p>
           </div>
 
-          {/* Filter Section */}
           <div className="flex flex-col sm:flex-row gap-4 justify-between items-center mb-12">
             <div className="flex items-center gap-4">
               <Filter className="w-5 h-5 text-gray-400" />
@@ -188,7 +176,7 @@ export default function BlogsPage() {
                     onClick={() => setSelectedCategory(category)}
                     className={
                       selectedCategory === category
-                        ? "bg-gradient-to-r from-cyan-500 to-purple-500 text-white border-0"
+                        ? "bg-[#00D9FF] hover:bg-[#00B8D4] text-black border-0"
                         : "border-white/20 text-gray-300 hover:bg-white/10 bg-transparent"
                     }
                   >
@@ -204,12 +192,11 @@ export default function BlogsPage() {
             </div>
           </div>
 
-          {/* Blog Posts Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {filteredPosts.map((post) => (
               <Card
                 key={post.id}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300 transform hover:scale-105 group"
+                className="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#00D9FF]/50 transition-all duration-300 group"
               >
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img
@@ -223,7 +210,7 @@ export default function BlogsPage() {
                 </div>
 
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-xl text-white mb-2 line-clamp-2 group-hover:text-cyan-400 transition-colors">
+                  <CardTitle className="text-xl text-white mb-2 line-clamp-2 group-hover:text-[#00D9FF] transition-colors">
                     {post.title}
                   </CardTitle>
                   <CardDescription className="text-gray-300 leading-relaxed line-clamp-3">
@@ -232,7 +219,6 @@ export default function BlogsPage() {
                 </CardHeader>
 
                 <CardContent className="space-y-4">
-                  {/* Tags */}
                   <div className="flex flex-wrap gap-2">
                     {post.tags.slice(0, 3).map((tag, index) => (
                       <Badge key={index} variant="outline" className="border-white/20 text-gray-400 text-xs">
@@ -241,7 +227,6 @@ export default function BlogsPage() {
                     ))}
                   </div>
 
-                  {/* Meta Info */}
                   <div className="flex items-center justify-between text-sm text-gray-400">
                     <div className="flex items-center gap-4">
                       <div className="flex items-center gap-1">
@@ -256,11 +241,10 @@ export default function BlogsPage() {
                     <span>{post.readTime}</span>
                   </div>
 
-                  {/* Read More Button */}
                   <Link href={`/blogs/${post.id}`} className="block">
                     <Button
                       variant="outline"
-                      className="w-full border-cyan-500/50 text-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-200 bg-transparent backdrop-blur-sm"
+                      className="w-full border-[#00D9FF]/50 text-[#00D9FF] hover:bg-[#00D9FF]/10 hover:text-[#00D9FF] bg-transparent backdrop-blur-sm"
                     >
                       Read More
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -271,10 +255,9 @@ export default function BlogsPage() {
             ))}
           </div>
 
-          {/* Newsletter Subscription */}
-          <div className="text-center bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-cyan-400/20 rounded-2xl p-12">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-400 to-purple-400 flex items-center justify-center mx-auto mb-6">
-              <Brain className="w-8 h-8 text-white" />
+          <div className="text-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-12">
+            <div className="w-16 h-16 rounded-full bg-[#00D9FF]/20 flex items-center justify-center mx-auto mb-6">
+              <Brain className="w-8 h-8 text-[#00D9FF]" />
             </div>
             <h2 className="text-3xl font-bold text-white mb-4">Stay Informed</h2>
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
@@ -285,13 +268,94 @@ export default function BlogsPage() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400"
+                className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#00D9FF]"
               />
-              <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 px-8">
+              <Button className="bg-[#00D9FF] hover:bg-[#00B8D4] text-black font-semibold border-0 px-8">
                 Subscribe
               </Button>
             </div>
           </div>
+          {/* Footer */}
+          <footer className="bg-[#0a0a14] py-12 px-6 border-t border-white/10">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                  <div className="flex items-center space-x-3 mb-4">
+               <Link href="/" className="flex items-center">
+            <Image
+              src="/grc-sphere-full-logo.png"
+              alt="GRC Sphere"
+              width={120}
+              height={50}
+              className="object-contain"
+            />
+          </Link>
+                  </div>
+                  <p className="text-gray-400 text-sm">
+                    Comprehensive cybersecurity governance, risk, and compliance solutions
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-white font-semibold mb-4">Products</h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link href="/products/cybersecurity-grc" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                        Cybersecurity GRC
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/products/regulatory-compliance"
+                        className="text-gray-400 hover:text-[#00D9FF] text-sm"
+                      >
+                        Regulatory Compliance
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-white font-semibold mb-4">Services</h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link
+                        href="/services/cybersecurity-services"
+                        className="text-gray-400 hover:text-[#00D9FF] text-sm"
+                      >
+                        Cybersecurity Services
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/services" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                        All Services
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-white font-semibold mb-4">Company</h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link href="/blogs" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                        Blog
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/contact" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                        Contact
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 GRC Sphere. All rights reserved.</p>
+              </div>
+            </div>
+          </footer>
         </div>
       </main>
     </div>

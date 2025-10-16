@@ -3,18 +3,21 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { Shield, ArrowLeft, Calendar, User, Clock, Share2, BookOpen } from "lucide-react"
+import { Shield, ArrowLeft, Calendar, User, Clock, Share2, BookOpen, Globe } from "lucide-react"
 
 const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <Shield className="w-8 h-8 text-cyan-400" />
-            <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              GRC Sphere
-            </span>
+        <Link href="/" className="flex items-center">
+            <Image
+              src="/grc-sphere-full-logo.png"
+              alt="GRC Sphere"
+              width={120}
+              height={50}
+              className="object-contain"
+            />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -32,9 +35,13 @@ const Navigation = () => {
             </Link>
           </div>
 
-          <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0">
-            Get Started
-          </Button>
+            <Button
+                size="lg"
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
+              >
+                <Globe className="w-5 h-5 mr-2" />
+                <Link href="mailto:connect@observeri.com">Consult Our Experts</Link>
+              </Button>
         </div>
       </div>
     </nav>

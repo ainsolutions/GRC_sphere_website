@@ -3,18 +3,23 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
-import { Lock, ArrowLeft, CheckCircle, Zap, BarChart3, Users, Globe, FileText, Shield, AlertCircle } from "lucide-react"
+import Image from "next/image"
+import { HyperspeedBackground } from "@/components/hyperspeed-background"
+import { Lock, ArrowLeft, CheckCircle, Zap, BarChart3, Globe, FileText, Shield, AlertCircle, Globe } from "lucide-react"
 
 const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <Shield className="w-8 h-8 text-cyan-400" />
-            <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              GRC Sphere
-            </span>
+     <Link href="/" className="flex items-center">
+            <Image
+              src="/grc-sphere-full-logo.png"
+              alt="GRC Sphere"
+              width={120}
+              height={50}
+              className="object-contain"
+            />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -32,9 +37,13 @@ const Navigation = () => {
             </Link>
           </div>
 
-          <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0">
-            Get Started
-          </Button>
+          <Button
+                size="lg"
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
+              >
+                <Globe className="w-5 h-5 mr-2" />
+                <Link href="mailto:connect@observeri.com">Consult Our Experts</Link>
+              </Button>
         </div>
       </div>
     </nav>
@@ -69,6 +78,7 @@ export default function RegulatoryCompliancePage() {
     <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
+      <HyperspeedBackground/>
         <div className="absolute inset-0 opacity-20">
           {Array.from({ length: 30 }).map((_, i) => (
             <div
@@ -203,10 +213,91 @@ export default function RegulatoryCompliancePage() {
                 className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
               >
                 <Globe className="w-5 h-5 mr-2" />
-                <Link href="mailto:info@grcsphere.com">Request Trial</Link>
+                <Link href="mailto:connect@observeri.com">Request Trial</Link>
               </Button>
             </div>
           </div>
+          {/* Footer */}
+          <footer className="bg-[#0a0a14] py-12 px-6 border-t border-white/10">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                  <div className="flex items-center space-x-3 mb-4">
+                   <Link href="/" className="flex items-center">
+            <Image
+              src="/grc-sphere-full-logo.png"
+              alt="GRC Sphere"
+              width={120}
+              height={50}
+              className="object-contain"
+            />
+          </Link>
+                  </div>
+                  <p className="text-gray-400 text-sm">
+                    Comprehensive cybersecurity governance, risk, and compliance solutions
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-white font-semibold mb-4">Products</h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link href="/products/cybersecurity-grc" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                        Cybersecurity GRC
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/products/regulatory-compliance"
+                        className="text-gray-400 hover:text-[#00D9FF] text-sm"
+                      >
+                        Regulatory Compliance
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-white font-semibold mb-4">Services</h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link
+                        href="/services/cybersecurity-services"
+                        className="text-gray-400 hover:text-[#00D9FF] text-sm"
+                      >
+                        Cybersecurity Services
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/services" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                        All Services
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-white font-semibold mb-4">Company</h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link href="/blogs" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                        Blog
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/contact" className="text-gray-400 hover:text-[#00D9FF] text-sm">
+                        Contact
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 GRC Sphere. All rights reserved.</p>
+              </div>
+            </div>
+          </footer>
         </div>
       </main>
     </div>
