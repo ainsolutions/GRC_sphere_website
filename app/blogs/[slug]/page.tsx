@@ -14,7 +14,7 @@ const Navigation = () => {
             <Image
               src="/grc-sphere-full-logo.png"
               alt="GRC Sphere"
-              width={120}
+              width={140}
               height={50}
               className="object-contain"
             />

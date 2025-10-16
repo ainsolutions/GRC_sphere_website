@@ -42,12 +42,11 @@ const Navigation = () => {
             <Image
               src="/grc-sphere-full-logo.png"
               alt="GRC Sphere"
-              width={120}
+              width={140}
               height={50}
               className="object-contain"
             />
           </Link>
-
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/products" className="text-cyan-400 font-semibold">
               Products

@@ -18,12 +18,12 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a2e]/80 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center">
+         <Link href="/" className="flex items-center">
             <Image
               src="/grc-sphere-full-logo.png"
               alt="GRC Sphere"
-              width={130}
-              height={70}
+              width={140}
+              height={50}
               className="object-contain"
             />
           </Link>
