@@ -344,7 +344,7 @@ function ModuleCard({ module, isOpen, onToggle }: { module: Module; isOpen: bool
         {preview && (
           <div className="mb-4 overflow-hidden rounded-xl border border-white/10">
             <Image
-              src={`/products/cybersecurirty-grc/${preview}`}
+              src={`/products/cybersecurity-grc/${preview}`}
               alt={`${module.title} preview screenshot`}
               width={1280}
               height={720}
@@ -381,13 +381,13 @@ function ModuleCard({ module, isOpen, onToggle }: { module: Module; isOpen: bool
                 {module.images.slice(1).map((img, i) => (
                   <a
                     key={img}
-                    href={`/products/cybersecurirty-grc/${img}`}
+                    href={`/products/cybersecurity-grc/${img}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group"
                   >
                     <Image
-                      src={`/products/cybersecurirty-grc/${img}`}
+                      src={`/products/cybersecurity-grc/${img}`}
                       alt={`${module.title} screenshot ${i + 2}`}
                       width={1024}
                       height={640}
