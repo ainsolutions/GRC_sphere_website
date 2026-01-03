@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import Image from "next/image"
 import { Shield, ArrowLeft, Calendar, User, Clock, Share2, BookOpen, Globe } from "lucide-react"
 
 const Navigation = () => {
