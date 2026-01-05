@@ -3,51 +3,9 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
-import Image from "next/image"
 import { Shield, ArrowLeft, CheckCircle, Target, Eye, Globe, Lock, Zap } from "lucide-react"
-
-const Navigation = () => {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/grc-sphere-full-logo.png"
-              alt="GRC Sphere"
-              width={140}
-              height={50}
-              className="object-contain"
-            />
-          </Link>
-
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/products" className="text-gray-300 hover:text-cyan-400 transition-colors">
-              Products
-            </Link>
-            <Link href="/services" className="text-cyan-400 font-semibold">
-              Services
-            </Link>
-            <Link href="/blogs" className="text-gray-300 hover:text-cyan-400 transition-colors">
-              Blogs
-            </Link>
-            <Link href="/contact" className="text-gray-300 hover:text-cyan-400 transition-colors">
-              Contact
-            </Link>
-          </div>
-
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
-          >
-            <Globe className="w-5 h-5 mr-2" />
-            <Link href="mailto:connect@observeri.com">Consult Our Experts</Link>
-          </Button>
-        </div>
-      </div>
-    </nav>
-  )
-}
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 
 export default function CybersecurityServicesPage() {
   const subServices = [
@@ -113,7 +71,7 @@ export default function CybersecurityServicesPage() {
         </div>
       </div>
 
-      <Navigation />
+      <Header />
 
       <main className="relative z-10 pt-24 pb-16 px-6">
         <div className="max-w-7xl mx-auto">
@@ -243,89 +201,9 @@ export default function CybersecurityServicesPage() {
               </Button>
             </div>
           </div>
-          {/* Footer */}
-          <footer className="bg-[#0a0a14] py-12 px-6 border-t border-white/10">
-            <div className="max-w-7xl mx-auto">
-              <div className="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                  <div className="flex items-center space-x-3 mb-4">
-                    <Link href="/" className="flex items-center">
-                      <Image
-                        src="/grc-sphere-full-logo.png"
-                        alt="GRC Sphere"
-                        width={120}
-                        height={50}
-                        className="object-contain"
-                      />
-                    </Link>
-                  </div>
-                  <p className="text-gray-400 text-sm">
-                    Comprehensive cybersecurity governance, risk, and compliance solutions
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-white font-semibold mb-4">Products</h4>
-                  <ul className="space-y-2">
-                    <li>
-                      <Link href="/products/cybersecurity-grc" className="text-gray-400 hover:text-[#00D9FF] text-sm">
-                        Cybersecurity GRC
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/products/regulatory-compliance"
-                        className="text-gray-400 hover:text-[#00D9FF] text-sm"
-                      >
-                        Regulatory Compliance
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-white font-semibold mb-4">Services</h4>
-                  <ul className="space-y-2">
-                    <li>
-                      <Link
-                        href="/services/cybersecurity-services"
-                        className="text-gray-400 hover:text-[#00D9FF] text-sm"
-                      >
-                        Cybersecurity Services
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/services" className="text-gray-400 hover:text-[#00D9FF] text-sm">
-                        All Services
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-white font-semibold mb-4">Company</h4>
-                  <ul className="space-y-2">
-                    <li>
-                      <Link href="/blogs" className="text-gray-400 hover:text-[#00D9FF] text-sm">
-                        Blog
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/contact" className="text-gray-400 hover:text-[#00D9FF] text-sm">
-                        Contact
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
-                <p>&copy; 2025 GRC Sphere. All rights reserved.</p>
-              </div>
-            </div>
-          </footer>
         </div>
       </main>
+      <Footer />
     </div>
   )
 }

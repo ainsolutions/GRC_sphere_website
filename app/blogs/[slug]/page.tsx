@@ -3,51 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import Image from "next/image"
-import { Shield, ArrowLeft, Calendar, User, Clock, Share2, BookOpen, Globe } from "lucide-react"
-
-const Navigation = () => {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-        <Link href="/" className="flex items-center">
-            <Image
-              src="/grc-sphere-full-logo.png"
-              alt="GRC Sphere"
-              width={140}
-              height={50}
-              className="object-contain"
-            />
-          </Link>
-
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/products" className="text-gray-300 hover:text-cyan-400 transition-colors">
-              Products
-            </Link>
-            <Link href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors">
-              Services
-            </Link>
-            <Link href="/blogs" className="text-cyan-400 font-semibold">
-              Blogs
-            </Link>
-            <Link href="/contact" className="text-gray-300 hover:text-cyan-400 transition-colors">
-              Contact
-            </Link>
-          </div>
-
-            <Button
-                size="lg"
-                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
-              >
-                <Globe className="w-5 h-5 mr-2" />
-                <Link href="mailto:connect@observeri.com">Consult Our Experts</Link>
-              </Button>
-        </div>
-      </div>
-    </nav>
-  )
-}
+import { ArrowLeft, Calendar, User, Clock, Share2, BookOpen, Globe } from "lucide-react"
+import { Header } from "@/components/header"
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
   // Sample blog post data - in a real app, this would be fetched based on the slug
@@ -166,7 +123,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         </div>
       </div>
 
-      <Navigation />
+      <Header />
 
       <main className="relative z-10 pt-24 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
